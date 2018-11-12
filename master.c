@@ -13,13 +13,13 @@ int main(){
 	printf("[MASTER %d]: semaforo creato e inizializzato a %d\n",getpid(),a);
 	int pid = fork();
 	if(!pid){
-		execl("./prod.o",NULL,NULL);
-		perror("errore nella execv di prod.o\n");
+		execl("./prod",NULL);
+		perror("errore nella execl di prod.o\n");
 		_exit(-3);
 	}
 	pid = fork();
 	if(!pid){
-		execl("./cons.o",NULL,NULL);
+		execl("./cons",NULL);
 		perror("errore nella execl di cons.o\n");
 		_exit(-4);
 	}

@@ -28,7 +28,7 @@ int main(){
 	for(int i=0; i<N_MESS;i++){
 		wait_sem(ds_sem,MESS_DISP,1);
 		int index = buf->coda;
-		buf->coda = (buf->testa +1)%DIM_BUF;
+		buf->coda = (buf->coda +1)%DIM_BUF;
 		signal_sem(ds_sem,SPAZIO_DISP,1);
 		printf("[CONS %d]: messaggio letto in posizione %d: %d\n",getpid(),index,buf->elem[index]);
 

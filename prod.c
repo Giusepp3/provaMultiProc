@@ -27,8 +27,7 @@ int main(void){
 	
 
 	for(int i = 0; i<N_MESS;i++){
-		srand(time(NULL));
-		int mess = rand()%200;
+		int mess = i;
 		wait_sem(ds_sem,SPAZIO_DISP,1);
 		int index = buf->testa;
 		buf->testa = (buf->testa +1)%DIM_BUF;

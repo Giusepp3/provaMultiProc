@@ -1,18 +1,17 @@
-start: master.o prod.o cons.o procedure.o
-	gcc -o start master.o
+all:
+	gcc-o start master.c procedure.c
+	gcc -o prod prod.c procedure.c
+	gcc -o cons cons.c procedure.c
 
-master.o: master.c procedure.c header.h 
-	gcc -c master.c procedure.c
+start: master.c procedure.c header.h
+	gcc -o start master.c procedure.c
 
-cons.o: procedure.c cons.c header.h
-	gcc -c cons.c procedure.c
+prod: prod.c procedure.c header.h
+	gcc -o prod prod.c procedure.c
 
-prod.o: prod.c procedure.c header.h
-	gcc -c prod.c procedure.c
+cons: cons.c procedure.c header.h
+	gcc -o cons cons.c procedure.c
 
-procedure.o: procedure.c header.h
-	gcc -c procedure.c
-	
 clean: 
 	rm -rf *.o
 	rm -rf start

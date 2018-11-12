@@ -21,7 +21,7 @@
 #define FTOK_CHAR 'a'
 #define N_MESS 10
 #define N_SEMS 1
-#define PERM 777
+#define PERM 0664
 
 //prototipi
 void wait_sem(int semid,int semnum,int n);
