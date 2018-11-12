@@ -3,7 +3,7 @@
 
 int main(){
 	key_t shm_key = ftok(FTOK_PATH,FTOK_CHAR);
-	int ds_shm = shmget(shm_key,sizeof(int),IPC_CREAT | 0664);
+	int ds_shm = shmget(shm_key,sizeof(int),IPC_CREAT | PERM);
 	printf("[CONS %d]: creato il descrittore per la memoria condivisa\n",getpid());
 
 
@@ -22,7 +22,7 @@ int main(){
 
 	key_t sem_key = ftok(FTOK_PATH,FTOK_CHAR);
 	printf("[CONS %d]: creata la chiave per il semaforo\n",getpid());
-	int ds_sem = semget(sem_key,N_SEMS,IPC_CREAT | 0664);
+	int ds_sem = semget(sem_key,N_SEMS,IPC_CREAT | PERM);
 	printf("[CONS %d]: creato il descrittore per il semaforo\n",getpid());
 
 	for(int i=0; i<N_MESS;i++){

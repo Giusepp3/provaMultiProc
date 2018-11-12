@@ -1,5 +1,5 @@
 start: master.o prod.o cons.o procedure.o
-	gcc -o start  prod.o cons.o master.o procedure.o
+	gcc -o start master.o
 
 master.o: master.c procedure.c header.h 
 	gcc -c master.c procedure.c
